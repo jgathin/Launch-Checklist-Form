@@ -85,10 +85,24 @@ window.addEventListener("load", function() {
          faultCargo.innerHTML = "Cargo mass low enough for launch";
          faultCargo.style.color = "black";
          faultFuel.style.color = "black";
+      }
+      if (fuelLevel.value > 10000 && cargoMass.value >= 10000) {
+         faultyItems.style.visibility = "visible";
+         faultFuel.style.color = "black";
+         faultFuel.innerHTML = "Fuel level high enough for launch";
+         event.preventDefault()
+      }
+
+      if (fuelLevel.value <= 10000 && cargoMass.value < 10000) {
+         faultyItems.style.visibility = "visible"; 
+         faultCargo.style.color = "black";
+         faultCargo.innerHTML = "Cargo mass low enough for launch";
+         event.preventDefault()
+      }
 
          event.preventDefault()
          
-      }
+      
 
       
       
